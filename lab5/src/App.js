@@ -1,7 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react'
-import Posts from './components/posts'
+import React from 'react';
+import Posts from './posts';
 
 function App() {
   return (
@@ -9,4 +7,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
