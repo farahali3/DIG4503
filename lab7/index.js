@@ -1,4 +1,3 @@
-import e from "express";
 import Express from "express";
 
 const App = Express();
