@@ -1,0 +1,69 @@
+<html>
+<body>
+<script>
+    // creates a function to read the name
+    function readName(event){
+
+        event.preventDefault();
+
+            let element = document.querySelector("#name");
+            // fetches the employee name
+                fetch("/api/employees/name/" + element.value)
+                .then((res) => {
+                return res.json();
+                })
+            // after fetching it is shown in the reporting area
+        .then((processed) => {
+            let reporting = document.querySelector ("#reportingArea");
+            if(processed.error) {
+                reporting.innerHTML = processed.error;
+            } else {
+                reporting.innerHTML = processed.age;
+            }
+            });
+    }
+
+    // creates a function to read the number (age) of the employee
+    function readNumber(event){
+
+        event.preventDefault();
+
+            let element = document.querySelector("#number");
+
+                fetch("/api/ages/number/" + element.value)
+                .then((res) => {
+                return res.json();
+                })
+                
+            // after fetching it is shown in the reporting area
+            .then((processed) => {
+            let reporting = document.querySelector ("#reportingArea");
+                if(processed.error) {
+                    reporting.innerHTML = processed.error;
+                } else {
+                    reporting.innerHTML = processed.name;
+                }
+                });
+    }
+</script>
+
+<h2> Name </h2>
+<form onsubmit="readName(event)">
+    <input placeholder= "Name" id="name" type ="text">
+    <button>Submit</button>
+</form>
+
+<h2> Age </h2>
+<form onsubmit= "readNumber(event)" >
+    <input placeholder="Age" id="number" type ="text">
+    <button>Submit</button>
+</form>
+<hr>
+<hr>
+<h2>Reporting</h2>
+<div id="reportingArea"> </div>
+
+<form onsubmit=""></form>
+</body>
+
+</html>
