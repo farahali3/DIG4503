@@ -62,6 +62,7 @@ App.listen(port, () => {
     console.log(chalk.hex("#33BBBB")("server is running"));
 })
 
+// uses the term dunder to call the dm which generates quotes from the characters below to the console
 let dunder = dm();
 dm.michael()   
 dm.jim();   
